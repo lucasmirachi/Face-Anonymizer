@@ -1,6 +1,7 @@
 import cv2
 import mediapipe as mp
 import os
+import argparse
 
 def process_img(img, face_detection):
     img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
@@ -27,7 +28,7 @@ def process_img(img, face_detection):
     
     return img
 
-
+argparse.ArgumentParser
 
 
 # STEP 1: read image
