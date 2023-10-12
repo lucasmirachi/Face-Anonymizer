@@ -27,7 +27,7 @@ def process_img(img, face_detection):
             # print(x1, y1, w, h)
 
             # blur faces
-            img[y1:y1 + h, x1:x1 + w, :] = cv2.blur(img[y1:y1 + h, x1:x1 + w, :], (30, 30))
+            img[y1:y1 + h, x1:x1 + w, :] = cv2.blur(img[y1:y1 + h, x1:x1 + w, :], (80, 80))
 
     return img
 
@@ -87,8 +87,10 @@ with mp_face_detection.FaceDetection(model_selection=0, min_detection_confidence
             frame = process_img(frame, face_detection)
 
             cv2.imshow('frame', frame)
-            cv2.waitKey(25)
 
             ret, frame = cap.read()
+            if cv2.waitKey(1) & 0xFF == ord('q'):
+                break
+
 
         cap.release()
